@@ -1,0 +1,20 @@
+{application, exmpp, [
+    {description, "XMPP/Jabber protocol oriented XML library"},
+    {vsn, "git-head"},
+    {modules, []},
+    {registered, [
+        exmpp_sup,
+        exmpp_compress,
+        exmpp_stringprep,
+        exmpp_stringprep_port,
+        exmpp_tls,
+        exmpp_xml
+    ]},
+    {applications, [
+        kernel,
+        stdlib
+    ]},
+    {mod, {exmpp, []}}
+]}.
+
+% vim:ft=erlang:ts=8:
