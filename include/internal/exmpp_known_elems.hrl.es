@@ -6,7 +6,7 @@ main([ Known_ELEMS_Src ]) ->
     Elements = lists:usort(read_elems(Known_ELEMS_Src)),
     io:format("-define(XMPP_KNOWN_ELEMS,~n"
               "        ~p).~n~n",
-              [ [ binary_to_list(EL)
+              [ [ binary_to_atom(EL, utf8)
                   || EL <- Elements ] ]),
     timer:sleep(10).
 

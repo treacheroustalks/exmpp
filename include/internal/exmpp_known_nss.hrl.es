@@ -6,7 +6,7 @@ main([ Known_NSS_Src ]) ->
     Namespaces = lists:usort(read_nss(Known_NSS_Src)),
     io:format("-define(XMPP_KNOWN_NSS,~n"
               "        ~p).~n~n",
-              [ [ binary_to_list(NS)
+              [ [ binary_to_atom(NS, utf8)
                   || NS <- Namespaces ] ]),
     timer:sleep(10).
 

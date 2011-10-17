@@ -6,7 +6,7 @@ main([ Known_ATTRS_Src ]) ->
     Attributes = lists:usort(read_attrs(Known_ATTRS_Src)),
     io:format("-define(XMPP_KNOWN_ATTRS,~n"
               "        ~p).~n~n",
-              [ [ binary_to_list(ATTR)
+              [ [ binary_to_atom(ATTR, utf8)
                   || ATTR <- Attributes ] ]),
     timer:sleep(10).
 
