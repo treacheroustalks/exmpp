@@ -311,8 +311,10 @@ make(Orig, Node, Domain, Resource) ->
 
 bare(#jid{raw = Orig_Jid} = Jid) ->
     New_Orig_Jid = case binary_split(Orig_Jid, $/) of
-		       [Bare_Jid | _] -> Bare_Jid;
-		       [Bare_Jid]    -> Bare_Jid
+		       [Bare_Jid | _] -> Bare_Jid
+               %% The following line give me a compiler warning about that it
+               %% cannot match since the previous clause always matches
+               %% [Bare_Jid] -> Bare_Jid
 		   end,
     Jid#jid{
       raw = New_Orig_Jid,
